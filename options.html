@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovStream Options</title>
+    <style>
+        :root {
+            --primary-color: #8e44ad;
+            --secondary-color: #7d3c98;
+            --background-color: #f5f5f5;
+            --text-color: #333;
+            --border-color: #ddd;
+            --success-color: #2ecc71;
+            --container-bg: white;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --description-color: #666;
+        }
+
+        /* Dark theme variables */
+        body.dark-theme {
+            --background-color: #222;
+            --text-color: #f5f5f5;
+            --border-color: #444;
+            --container-bg: #333;
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --description-color: #aaa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            padding: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .option-group {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .option-group:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .option-title {
+            font-weight: 500;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .option-description {
+            margin-bottom: 15px;
+            color: var(--description-color);
+            font-size: 0.9em;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .option-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .save-message {
+            text-align: center;
+            color: var(--success-color);
+            margin-top: 10px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .save-message.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MovStream Options</h1>
+
+        <div class="option-group">
+            <div class="option-title">Download Behavior</div>
+            <div class="option-description">
+                Control how MovStream handles .mov files when you click on them.
+            </div>
+            <div class="option-row">
+                <span>Show download dialog for .mov files</span>
+                <label class="switch">
+                    <input type="checkbox" id="showDownloadDialog">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="option-group">
+            <div class="option-title">Player Appearance</div>
+            <div class="option-description">
+                Customize how the video player looks.
+            </div>
+            <div class="option-row">
+                <span>Use custom video controls</span>
+                <label class="switch">
+                    <input type="checkbox" id="useCustomControls" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="option-row">
+                <span>Dark theme</span>
+                <label class="switch">
+                    <input type="checkbox" id="useDarkTheme" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <button id="saveButton">Save Options</button>
+        <div id="saveMessage" class="save-message">Options saved successfully!</div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>

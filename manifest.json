@@ -3,7 +3,7 @@
   "name": "MovStream",
   "version": "1.0",
   "author": "nunzio.marfe@protonmail.com",
-  "description": "MovStream is a Chrome extension allows users to play .mov files directly in the browser.",
+  "description": "MovStream is a Chrome extension that allows users to play .mov files directly in the browser.",
   "permissions": [
     "tabs",
     "storage",
@@ -13,8 +13,27 @@
     "https://*/*",
     "http://*/*"
   ],
+  "action": {
+    "default_icon": {
+      "16": "hello_extensions.png",
+      "48": "hello_extensions.png",
+      "128": "hello_extensions.png"
+    },
+    "default_title": "MovStream",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "hello_extensions.png",
+    "48": "hello_extensions.png",
+    "128": "hello_extensions.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
   "incognito": "split",
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   }
 }
