@@ -6,8 +6,8 @@
     <title>MovStream</title>
     <style>
         :root {
-            --primary-color: #8e44ad;
-            --secondary-color: #7d3c98;
+            --primary-color: #ed553a;
+            --secondary-color: #dd5e4b;
             --background-color: #f5f5f5;
             --text-color: #333;
             --border-color: #ddd;
@@ -114,12 +114,15 @@
         .footer {
             padding: 10px 15px;
             text-align: center;
-            background-color: white;
-            border-top: 1px solid var(--border-color);
+            background-color: var(--primary-color);
+
+            border-radius: 32px 32px 32px 32px;
+            width: 75%;
+            margin: auto;
         }
 
         .footer a {
-            color: var(--primary-color);
+            color: white;
             text-decoration: none;
             font-size: 14px;
         }
@@ -133,12 +136,12 @@
         }
 
         .status {
-            margin-top: 10px;
+            margin-bottom: 20px;
             padding: 10px;
-            background-color: #e8f4fd;
+            background-color: #dfdddd;
             border-radius: 4px;
             font-size: 13px;
-            color: var(--secondary-color);
+            color: black;
         }
 
         .status-icon {
@@ -152,45 +155,47 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>MovStream</h1>
+<div class="header">
+    <h1>MovStream</h1>
+</div>
+
+<div class="content">
+    <div class="status">
+        <span class="status-icon"></span>
+        MovStream ready to play .mov files
     </div>
 
-    <div class="content">
-        <div class="status">
-            <span class="status-icon"></span>
-            MovStream is active and ready to play .mov files
-        </div>
-
-        <div class="option-row">
-            <span class="option-label">Show download dialog</span>
-            <label class="switch">
-                <input type="checkbox" id="showDownloadDialog">
-                <span class="slider"></span>
-            </label>
-        </div>
-
-        <div class="option-row">
-            <span class="option-label">Use custom video controls</span>
-            <label class="switch">
-                <input type="checkbox" id="useCustomControls" checked>
-                <span class="slider"></span>
-            </label>
-        </div>
-
-        <div class="option-row">
-            <span class="option-label">Dark theme</span>
-            <label class="switch">
-                <input type="checkbox" id="useDarkTheme" checked>
-                <span class="slider"></span>
-            </label>
-        </div>
+    <div class="option-row">
+        <span class="option-label">Show download dialog</span>
+        <label class="switch">
+            <input type="checkbox" id="showDownloadDialog">
+            <span class="slider"></span>
+        </label>
     </div>
 
-    <div class="footer">
-        <a href="#" id="openOptions">Open full settings</a>
+    <div class="option-row">
+        <span class="option-label">Use custom video controls</span>
+        <label class="switch">
+            <input type="checkbox" id="useCustomControls" checked>
+            <span class="slider"></span>
+        </label>
     </div>
 
-    <script src="popup.js"></script>
+    <div class="option-row">
+        <span class="option-label">Dark theme</span>
+        <label class="switch">
+            <input type="checkbox" id="useDarkTheme" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+</div>
+
+<div class="footer">
+    <a href="#" id="openOptions" style="font-weight: bold">Open full settings</a>
+</div>
+
+<div style="margin-top: 10px;"></div>
+
+<script src="popup.js"></script>
 </body>
 </html>

@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #8e44ad;
-            --secondary-color: #7d3c98;
+            --primary-color: #ed553a;
+            --secondary-color: #dd5e4b;
             --background-color: #000;
             --text-color: #fff;
             --control-bg: rgba(28, 28, 28, 0.7);
@@ -84,7 +84,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .error-message {
@@ -233,43 +235,43 @@
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <div id="loading" class="loading">
-            <div class="loading-spinner"></div>
-            Loading video...
-        </div>
-        <div id="error-message" class="error-message"></div>
-        <video id="video" autoplay></video>
+<div class="video-container">
+    <div id="loading" class="loading">
+        <div class="loading-spinner"></div>
+        Loading video...
+    </div>
+    <div id="error-message" class="error-message"></div>
+    <video id="video" autoplay></video>
 
-        <!-- Custom video controls (initially hidden, shown based on user preference) -->
-        <div id="custom-controls" class="custom-controls" style="display: none;">
-            <div class="progress-container" id="progress-container">
-                <div class="progress-bar" id="progress-bar"></div>
-            </div>
-            <div class="controls-row">
-                <div class="left-controls">
-                    <button class="control-button" id="play-pause">
-                        <span class="material-icons">play_arrow</span>
+    <!-- Custom video controls (initially hidden, shown based on user preference) -->
+    <div id="custom-controls" class="custom-controls" style="display: none;">
+        <div class="progress-container" id="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="controls-row">
+            <div class="left-controls">
+                <button class="control-button" id="play-pause">
+                    <span class="material-icons">play_arrow</span>
+                </button>
+                <div class="volume-container">
+                    <button class="control-button" id="mute-unmute">
+                        <span class="material-icons">volume_up</span>
                     </button>
-                    <div class="volume-container">
-                        <button class="control-button" id="mute-unmute">
-                            <span class="material-icons">volume_up</span>
-                        </button>
-                        <div class="volume-slider" id="volume-slider">
-                            <div class="volume-level" id="volume-level"></div>
-                        </div>
+                    <div class="volume-slider" id="volume-slider">
+                        <div class="volume-level" id="volume-level"></div>
                     </div>
-                    <span class="time-display" id="time-display">0:00 / 0:00</span>
                 </div>
-                <div class="right-controls">
-                    <button class="control-button" id="fullscreen">
-                        <span class="material-icons">fullscreen</span>
-                    </button>
-                </div>
+                <span class="time-display" id="time-display">0:00 / 0:00</span>
+            </div>
+            <div class="right-controls">
+                <button class="control-button" id="fullscreen">
+                    <span class="material-icons">fullscreen</span>
+                </button>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="player.js" type="module"></script>
+<script src="player.js" type="module"></script>
 </body>
 </html>

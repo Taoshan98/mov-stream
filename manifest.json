@@ -15,17 +15,23 @@
   ],
   "action": {
     "default_icon": {
-      "16": "hello_extensions.png",
-      "48": "hello_extensions.png",
-      "128": "hello_extensions.png"
+      "16": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png",
+      "512": "logo.png",
+      "1024": "logo.png",
+      "2048": "logo.png"
     },
     "default_title": "MovStream",
     "default_popup": "popup.html"
   },
   "icons": {
-    "16": "hello_extensions.png",
-    "48": "hello_extensions.png",
-    "128": "hello_extensions.png"
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png",
+    "512": "logo.png",
+    "1024": "logo.png",
+    "2048": "logo.png"
   },
   "options_ui": {
     "page": "options.html",
