@@ -19,8 +19,7 @@
       "48": "logo.png",
       "128": "logo.png",
       "512": "logo.png",
-      "1024": "logo.png",
-      "2048": "logo.png"
+      "1024": "logo.png"
     },
     "default_title": "MovStream",
     "default_popup": "popup.html"
@@ -30,8 +29,7 @@
     "48": "logo.png",
     "128": "logo.png",
     "512": "logo.png",
-    "1024": "logo.png",
-    "2048": "logo.png"
+    "1024": "logo.png"
   },
   "options_ui": {
     "page": "options.html",

@@ -14,8 +14,17 @@ const DEFAULT_OPTIONS = {
 // User preferences
 let userPreferences = { ...DEFAULT_OPTIONS };
 
+// Flag to prevent reopening tabs on browser startup
+let isBrowserStarting = true;
+
 // Load user preferences when the extension starts
 loadUserPreferences();
+
+// Set a timeout to mark the end of the browser startup phase
+setTimeout(() => {
+    isBrowserStarting = false;
+    console.log('Browser startup phase completed');
+}, 5000); // 5 seconds should be enough for the browser to complete startup
 
 /**
  * Loads user preferences from chrome.storage
@@ -44,6 +53,12 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
  * Handles download events and intercepts .mov files based on user preferences
  */
 chrome.downloads.onCreated.addListener(async (downloadItem) => {
+    // Skip processing downloads during browser startup to prevent reopening tabs
+    if (isBrowserStarting) {
+        console.log('Skipping download processing during browser startup');
+        return;
+    }
+
     try {
         // Check if the URL directly ends with .mov
         const isMovByExtension = downloadItem.url.toLowerCase().endsWith('.mov');
